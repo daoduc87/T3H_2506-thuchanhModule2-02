@@ -608,6 +608,7 @@ if (firstName && lastName && emailSignUp && passwordSignUp && btnSignUp) {
             passwordSignUp.value.length === 0
         ) {
             alert('Hãy nhập đầy đủ thông tin');
+            return;
         }
         const isUserSystem = users.some((user) => user.email === emailSignUp.value);
         if (isUserSystem) {
