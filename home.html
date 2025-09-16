@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trang chủ</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="max-w-screen-xl mx-auto">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link active"
+                        id="home-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#home"
+                        type="button"
+                        role="tab"
+                        aria-controls="home"
+                        aria-selected="true"
+                    >
+                        Danh sách user
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link"
+                        id="profile-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#profile"
+                        type="button"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                    >
+                        Danh sách post
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link"
+                        id="contact-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#contact"
+                        type="button"
+                        role="tab"
+                        aria-controls="contact"
+                        aria-selected="false"
+                    >
+                        Xem chi tiết post
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button
+                        class="nav-link"
+                        id="post-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#post"
+                        type="button"
+                        role="tab"
+                        aria-controls="post"
+                        aria-selected="false"
+                    >
+                        Tìm kiếm post theo user
+                    </button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="mt-7 w-full flex flex-col items-center">
+                        <div class="flex gap-3">
+                            <input
+                                type="text"
+                                placeholder="Nhập vào họ và tên hoặc email"
+                                class="input input-tab-user"
+                            />
+                            <button class="btn-primary btn-search-tab-user">Search</button>
+                        </div>
+                        <div class="mt-4 space-y-3">
+                            <table class="table table-tab-user" style="display: none">
+                                <thead>
+                                    <tr class="table-primary">
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Họ tên</th>
+                                        <th scope="col">Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-bordered users"></tbody>
+                            </table>
+                            <div class="alert-error-user"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="mt-7">
+                        <table class="table">
+                            <thead>
+                                <tr class="table-primary">
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Title</th>
+                                    <th scope="col">Ngày tạo</th>
+                                    <th scope="col">Họ tên người tạo</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-bordered tab-post-container"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="mt-7 w-full flex flex-col items-center">
+                        <div class="flex gap-3">
+                            <input type="text" placeholder="Nhập vào post id" class="input input-tab-post" />
+                            <button class="btn-primary btn-search-tab-post">Search</button>
+                        </div>
+                        <div class="mt-4 space-y-3">
+                            <table class="table table-tab-post" style="display: none">
+                                <thead>
+                                    <tr class="table-primary">
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Tiêu đề</th>
+                                        <th scope="col">Nội dung</th>
+                                        <th scope="col">Link ảnh</th>
+                                        <th scope="col">Tên người tạo</th>
+                                        <th scope="col">Ngày tạo</th>
+                                        <th scope="col">Ngày sửa đổi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-bordered post-list-container"></tbody>
+                            </table>
+                            <div class="alert-error-post"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="post" role="tabpanel" aria-labelledby="post-tab">
+                    <div class="mt-7 w-full flex flex-col items-center">
+                        <div class="flex gap-3">
+                            <input type="text" placeholder="Nhập vào email" class="input input-tab-post-email" />
+                            <button class="btn-primary btn-search-tab-post-email">Search</button>
+                        </div>
+                        <div class="mt-4 space-y-3">
+                            <table class="table table-tab-post-email" style="display: none">
+                                <thead>
+                                    <tr class="table-primary">
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Tiêu đề</th>
+                                        <th scope="col">Nội dung</th>
+                                        <th scope="col">Link ảnh</th>
+                                        <th scope="col">Email người tạo</th>
+                                        <th scope="col">Tên người tạo</th>
+                                        <th scope="col">Ngày tạo</th>
+                                        <th scope="col">Ngày sửa đổi</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="table-bordered post-list-email-container"></tbody>
+                            </table>
+                            <div class="alert-error-post-email"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+            crossorigin="anonymous"
+        ></script>
+        <script src="./index.js"></script>
+    </body>
+</html>
