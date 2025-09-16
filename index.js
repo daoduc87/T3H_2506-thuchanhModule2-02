@@ -588,7 +588,7 @@ if (email && password && signin) {
 
         if (exitUser) {
             alert(`Xin chào ${exitUser.first_name} ${exitUser.last_name}`);
-            window.location.href = '/home.html';
+            window.location.href = './home.html';
         } else {
             alert('Thông tin tài khoản không chính xác');
         }
@@ -623,7 +623,7 @@ if (firstName && lastName && emailSignUp && passwordSignUp && btnSignUp) {
             });
             localStorage.setItem('users', JSON.stringify(users));
             alert('Đăng ký thành công');
-            window.location.href = '/index.html';
+            window.location.href = './index.html';
         }
     });
 }
