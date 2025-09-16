@@ -583,7 +583,6 @@ if (email && password && signin) {
             alert('Hãy nhập đầy đủ thông tin');
             return;
         }
-        const users = JSON.parse(localStorage.getItem('users'));
         const exitUser = users.find((user) => user.email === email.value && user.password === password.value);
 
         if (exitUser) {
